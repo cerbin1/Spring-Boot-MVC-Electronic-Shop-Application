@@ -1,9 +1,6 @@
 package com.elektroniks;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +27,20 @@ public class CategoryController {
     public List<Product> findProducts(@PathVariable String categoryName) {
         return findOne(categoryName).getProducts();
     }
+
+    @PostMapping("{categoryName}/products}")
+    public Product addProduct(
+            @PathVariable String categoryName,
+            @RequestParam String name,
+            @RequestParam double price,
+            @RequestParam boolean available
+    ) {
+        Category category = findOne(categoryName);
+        List<Product> products = category.getProducts();
+        Product newProduct = new Product(name, price, available);
+        products.add(newProduct);
+        category.setProducts(products);
+        return newProduct;
+    }
+
 }
