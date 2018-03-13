@@ -25,4 +25,9 @@ public class CategoryController {
     public Category findOne(@PathVariable("categoryName") String name) {
         return categoryRepository.findOne(name);
     }
+
+    @GetMapping("{categoryName}/products")
+    public List<Product> findProducts(@PathVariable String categoryName) {
+        return findOne(categoryName).getProducts();
+    }
 }
