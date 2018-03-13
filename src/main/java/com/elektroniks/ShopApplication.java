@@ -8,12 +8,12 @@ import java.util.List;
 
 @Repository
 public class ShopApplication implements CategoryRepository {
-    private List<Category> categories = Arrays.asList(new Category("PC"),
-            new Category("Laptops"),
-            new Category("Games"),
-            new Category("Peripherals"),
-            new Category("Printers"),
-            new Category("Accessories"));
+    private List<Category> categories = Arrays.asList(new Category("computers"),
+            new Category("laptops"),
+            new Category("games"),
+            new Category("peripherals"),
+            new Category("printers"),
+            new Category("accessories"));
 
     @Override
     public List<Category> findAll() {
