@@ -38,7 +38,7 @@ public class CategoryController {
                 .orElse(null);
     }
 
-    @PostMapping("{categoryName}/products}")
+    @PostMapping("{categoryName}/products")
     public Product addProduct(
             @PathVariable String categoryName,
             @RequestParam String name,
