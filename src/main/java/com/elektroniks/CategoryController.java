@@ -28,6 +28,16 @@ public class CategoryController {
         return findOne(categoryName).getProducts();
     }
 
+    @GetMapping("{categoryName}/products/{id}")
+    public Product findProductWithId(@PathVariable String categoryName, @PathVariable long id) {
+        return findOne(categoryName)
+                .getProducts()
+                .stream()
+                .filter(product -> product.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
     @PostMapping("{categoryName}/products}")
     public Product addProduct(
             @PathVariable String categoryName,
