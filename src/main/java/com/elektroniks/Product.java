@@ -4,14 +4,12 @@ public class Product {
     private static int id = 0;
     private String name;
     private double price;
-    private String description;
     private boolean available;
 
-    Product(String name, double price, String description, boolean available) {
+    Product(String name, double price, boolean available) {
         id = getNextProductId();
         this.name = name;
         this.price = price;
-        this.description = description;
         this.available = available;
     }
 
@@ -21,10 +19,6 @@ public class Product {
 
     public double getPrice() {
         return price;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public boolean isAvailable() {
