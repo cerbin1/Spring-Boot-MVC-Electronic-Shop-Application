@@ -34,4 +34,16 @@ public class Product {
     private static int getNextProductId() {
         return next_id++;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 }
